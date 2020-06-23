@@ -7,7 +7,7 @@ const App = () => {
     <Router>
       <Fragment>
         <Switch>
-          <Route path="/" component={Landing} />
+          <Route exact path="/" component={Landing} />
         </Switch>
       </Fragment>
     </Router>
