@@ -3,16 +3,22 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Landing from './Landing/Landing'
 import Navbar from './Shared/Navbar/Navbar'
 import UserForm from './User/Form'
+import VideoForm from './Video/Form'
+import Videos from './Video/Table/Table'
 import './App.css'
 const App = () => {
   return (
     <Router>
       <Fragment>
         <Navbar />
-        <Switch>
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/register" component={UserForm} />
-        </Switch>
+        <div className="container">
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/register" component={UserForm} />
+            <Route exact path="/upload" component={VideoForm} />
+            <Route exact path="/browse" component={Videos} />
+          </Switch>
+        </div>
       </Fragment>
     </Router>
   )
