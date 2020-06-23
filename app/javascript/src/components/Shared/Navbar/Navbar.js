@@ -18,7 +18,7 @@ const Shared_Navbar = (props) => {
   const toggleNavbar = () => setCollapsed(!collapsed)
 
   return (
-    <Navbar color="faded" light expand="xs">
+    <Navbar color="faded" light expand="xs" className="mb-3">
       <NavbarBrand className="mr-auto" onClick={() => history.push('/')}>
         <img
           src="https://www.jway.com/wp-content/uploads/2015/12/Logo-JWay.svg"

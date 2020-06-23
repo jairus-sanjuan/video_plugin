@@ -8,9 +8,12 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import App from '../src/components/App'
 
+var root = document.createElement('div')
+root.className = 'root'
+
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <App />,
-    document.body.appendChild(document.createElement('div')),
+    document.body.appendChild(root)
   )
 })
