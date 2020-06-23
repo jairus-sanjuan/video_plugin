@@ -1,0 +1,39 @@
+.navbar a{
+  color: black;
+}
+
+.navbar a img{
+  cursor: pointer;
+}
+
+.navbar--links{
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.3;
+  padding:0.5rem;
+}
+
+
+.navbar--divider{
+  height: 40px;
+  padding: 0.3rem 0;
+  display: block;
+}
+
+@media (min-width: 768px) {
+	.navbar--divider {
+    display: block;
+  }
+}
+
+/* 
+.navbar--divider{
+  height: 40px;
+  padding: 0.3rem 0;
+  display: none;
+}
+
+@media (min-width: 768px) {
+	.navbar--divider {
+    display: block;
+  }
+} */
