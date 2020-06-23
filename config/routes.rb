@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'lti/launch'
   get 'videos/index'
   get 'videos/show'
   get 'videos/create'
