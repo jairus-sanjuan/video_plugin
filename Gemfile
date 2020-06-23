@@ -21,7 +21,14 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'carrierwave', '~> 2.1'
 
+# IMS-LTI Gem for Launch Request Verification in Canvas
+gem 'ims-lti', '~> 2.3'
+
+# oauth gem
+
+gem 'oauth', '~> 0.5.4'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
