@@ -12,7 +12,7 @@ import {
 
 import './Navbar.css'
 
-const Shared_Navbar = (props) => {
+const Shared_Navbar = () => {
   const [collapsed, setCollapsed] = useState(true)
   const history = useHistory()
   const toggleNavbar = () => setCollapsed(!collapsed)
