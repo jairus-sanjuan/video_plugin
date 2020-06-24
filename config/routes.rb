@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get '/users', to: 'users#index'
+      get '/users/:user_id', to: 'users#show'
+      get '/users/:user_id/videos', to: 'videos#all'
+      get '/users/:user_id/videos/:id', to: 'videos#show'
       post '/users', to: 'users#create'
     end
   end
