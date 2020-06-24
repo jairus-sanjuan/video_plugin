@@ -1,8 +1,4 @@
 class LtiController < ApplicationController
-  skip_before_action :verify_authenticity_token
-
-  after_action :allow_iframe, only: [:launch]
-
   def launch
     # Check if the key is present or not
     puts '-----------------------------------------'

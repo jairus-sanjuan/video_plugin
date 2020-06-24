@@ -1,4 +1,5 @@
 class VideosController < ApplicationController
+  protect_from_forgery :except => [:create,:index]
   def index
   end
 
