@@ -11,7 +11,7 @@ class LtiController < ApplicationController
 
     require 'oauth/request_proxy/action_controller_request'
 
-    authenticator = IMS::LTI::Services::MessageAuthenticator.new(request.url, request.request_parameters, "451f5167c61807dbe5c6b7464d85322f")
+    authenticator = IMS::LTI::Services::MessageAuthenticator.new(request.url, request.request_parameters, "f4aa9c9aec6a7fc01cbafb791699410a")
 
     puts '-----------------------------------------'
       puts authenticator.valid_signature?

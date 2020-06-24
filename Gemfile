@@ -29,6 +29,10 @@ gem 'ims-lti', '~> 2.3'
 # oauth gem
 
 gem 'oauth', '~> 0.5.4'
+
+# Serializer
+gem 'fast_jsonapi', '~> 1.5'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
