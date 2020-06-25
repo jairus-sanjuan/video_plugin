@@ -11,6 +11,9 @@ module Api
 
       def all
         videos = @user.videos
+        puts '------- videos'
+          puts videos.inspect
+        puts '------- videos'
         render json: serializer(videos)
       end
     
@@ -21,7 +24,7 @@ module Api
           video = @user.videos.find(params[:id])
           render json: serializer(video)
         else
-          render json: { error: "no videos found with id : #{params[:id]}" }, status:404
+          render json: { error: "no videos found with id : #{params[:id]}" }, status: 404
         end
 
       end
@@ -44,7 +47,14 @@ module Api
     end
 
     def set_user
-      @user = User.find(params[:user_id])
+      @user = User.find_by(id: params[:user_id])
+
+      if @user == nil
+        return render json: {error: 'User not found.'}, status:404
+      elsif @user.id != session[:id]
+        return render json: {error: 'Unauthorized request.'}, status:401
+      end
+      
     end
 
     # Only allow a list of trusted parameters through.

@@ -37,7 +37,7 @@ const Shared_Navbar = () => {
           <li className="nav-item my-auto font-weight-bolder navbar--divider">
             <div className="my-auto">|</div>
           </li>
-          <Link className="nav-item navbar--links" to="/browse">
+          <Link className="nav-item navbar--links" to="/videos">
             Videos
           </Link>
         </Nav>

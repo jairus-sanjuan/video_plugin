@@ -8,10 +8,11 @@ import Videos from './Video/Table/Table'
 import './App.css'
 import axios from '../../utils/req'
 const App = () => {
-  
   useEffect(() => {
     axios.get('http://localhost:3000/session', {}).then((resp) => {
-      console.log("Response : ", resp)
+      sessionStorage.setItem('id', resp['data']['session']['id'])
+
+      console.log(resp)
     })
   }, [])
 

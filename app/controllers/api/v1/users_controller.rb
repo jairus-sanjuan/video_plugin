@@ -28,8 +28,17 @@ module Api
       private
         # Use callbacks to share common setup or constraints between actions.
         def set_user
-          params[:user_id]? @user = User.find(params[:user_id]) : @user = User.find(params[:id])
-          # @user = User.find(session[:id])
+
+          params[:user_id]? @user = User.find_by(id: params[:user_id]) : @user = User.find_by(id: params[:id])
+
+          puts @user.inspect
+
+          if @user == nil
+            return render json: {error: 'User not found.'}, status:404
+          elsif @user.id != session[:id]
+            return render json: {error: 'Unauthorized request.'}, status:401
+          end
+          
         end
     
         def serializer(records, options = {})
