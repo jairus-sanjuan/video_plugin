@@ -1,15 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Thumbnail from './Thumbnail'
 import { Link } from 'react-router-dom'
-const Item = ({ title, description, thumbnail, file }) => {
+
+const Item = (props) => {
+  const { id, title, description, thumbnail } = props
+  useEffect(() => {
+    console.log('Props :', props)
+  }, [])
+
   return (
-    <div className="row">
+    <div className="row py-4">
       <div className="col-md-10 offset-md-1">
         <div className="text-center">
           <div className="card px-5">
             <div className="row">
               <div className="col-md-4">
-                <Thumbnail url={file} />
+                <Thumbnail image_url={thumbnail} />
               </div>
               <div className="col-md-8">
                 <div className="py-4">
@@ -17,7 +23,12 @@ const Item = ({ title, description, thumbnail, file }) => {
                   <p>{description}</p>
 
                   <div className="cta-wrapper">
-                    <Link className="btn cta-btn">Embed this video</Link>
+                    <Link
+                      className="btn btn-secondary cta-btn"
+                      to={`/videos/${id}`}
+                    >
+                      Embed this video
+                    </Link>
                   </div>
                 </div>
               </div>

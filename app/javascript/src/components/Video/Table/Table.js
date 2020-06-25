@@ -25,22 +25,19 @@ const Table = () => {
           <h2 className="py-2">Videos Section.</h2>
         </div>
 
-        {/* {items.length > 0 &&
-          } */}
-
         {items.length > 0 ? (
           items.map((item) => {
-            const { id, title, description, file, thumbnail } = item[
-              'attributes'
-            ]
+            console.log('Item Object : ', item)
+            const { title, description, file, thumbnail } = item['attributes']
 
             return (
               <Item
-                key={id}
+                key={item.id}
+                id={item.id}
                 title={title}
                 description={description}
-                thumbnail={thumbnail}
-                file={file}
+                thumbnail={thumbnail.url}
+                file={file.url}
               />
             )
           })

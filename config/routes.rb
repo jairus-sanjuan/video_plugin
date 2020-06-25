@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get '/users/:user_id/videos', to: 'videos#all'
       get '/users/:user_id/videos/:id', to: 'videos#show'
       post '/users', to: 'users#create'
+      post 'users/:user_id/videos', to: 'videos#create'
     end
   end
 

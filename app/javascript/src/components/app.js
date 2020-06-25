@@ -5,6 +5,7 @@ import Navbar from './Shared/Navbar/Navbar'
 import UserForm from './User/Form'
 import VideoForm from './Video/Form'
 import Videos from './Video/Table/Table'
+import Video from './Video/Table/ActiveItem'
 import './App.css'
 import axios from '../../utils/req'
 const App = () => {
@@ -16,6 +17,15 @@ const App = () => {
     })
   }, [])
 
+  // useEffect(() => {
+  //   axios.get('http://localhost:3000/api/v1/users/8', {}).then((resp) => {
+  //    console.log(resp)
+
+  //    sessionStorage.setItem('id', resp['data']['session']['id'])
+
+  //   })
+  // }, [])
+
   return (
     <Router>
       <Fragment>
@@ -26,6 +36,7 @@ const App = () => {
             <Route exact path="/register" component={UserForm} />
             <Route exact path="/upload" component={VideoForm} />
             <Route exact path="/videos" component={Videos} />
+            <Route exact path="/videos/:id" component={Video} />
             {/* <Route exact path="/browse/:video_id" component={Video} /> */}
           </Switch>
         </div>

@@ -59,7 +59,7 @@ module Api
 
     # Only allow a list of trusted parameters through.
     def video_params
-      params.require(:video).permit(:title, :file, :thumbnail, :user_id)
+      params.permit(:title, :file, :thumbnail, :user_id)
     end
 
     def serializer(records, options = {})
