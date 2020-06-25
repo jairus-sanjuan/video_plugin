@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Landing from './Landing/Landing'
 import Navbar from './Shared/Navbar/Navbar'
@@ -6,7 +6,15 @@ import UserForm from './User/Form'
 import VideoForm from './Video/Form'
 import Videos from './Video/Table/Table'
 import './App.css'
+import axios from '../../utils/req'
 const App = () => {
+  
+  useEffect(() => {
+    axios.get('http://localhost:3000/session', {}).then((resp) => {
+      console.log("Response : ", resp)
+    })
+  }, [])
+
   return (
     <Router>
       <Fragment>
@@ -16,7 +24,8 @@ const App = () => {
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={UserForm} />
             <Route exact path="/upload" component={VideoForm} />
-            <Route exact path="/browse" component={Videos} />
+            <Route exact path="/videos" component={Videos} />
+            {/* <Route exact path="/browse/:video_id" component={Video} /> */}
           </Switch>
         </div>
       </Fragment>

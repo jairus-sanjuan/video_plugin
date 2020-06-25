@@ -38,7 +38,7 @@ const Shared_Navbar = () => {
             <div className="my-auto">|</div>
           </li>
           <Link className="nav-item navbar--links" to="/browse">
-            Browse
+            Videos
           </Link>
         </Nav>
       </Collapse>

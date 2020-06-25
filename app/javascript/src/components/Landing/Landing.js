@@ -12,12 +12,6 @@ const Landing = () => {
   //     })
   // }, [])
 
-  useEffect(() => {
-    axios.get('http://localhost:3000/session', {}).then((resp) => {
-      console.log('Response : ', resp)
-    })
-  }, [])
-
   return (
     <div className="Landing">
       <h1>Hello this is landing page.</h1>

@@ -25,6 +25,8 @@ class LtiController < ApplicationController
 
     #Request was valid, create a session for a user
     session[:user_id] = params.require :user_id
+    session[:oauth_consumer_key] = params.require :oauth_consumer_key
+    session[:id] = @user.id
     
     redirect_to '/upload'
   end

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import axios from 'axios'
+import axios from '../../../utils/req'
 
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap'
 const UserForm = () => {
@@ -8,6 +8,8 @@ const UserForm = () => {
     secret: '',
   })
 
+  const [progress, setProgress] = useState(true)
+
   const handleChange = (e) => {
     setData({ [e.target.name]: e.target.value })
   }
@@ -15,20 +17,39 @@ const UserForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    // axios.post('/users/create', null, { withCredentials: true })
+    const { key, secret } = data
+
+    axios
+      .post('/api/v1/users', {
+        key,
+        secret,
+      })
+      .then((resp) => {
+        const data = resp['data']['data']['attributes']
+
+        const { key, secret } = data
+
+        setData({
+          key,
+          secret,
+        })
+
+        setProgress(false)
+      })
+      .catch((error) => console.log('Error : ', error))
   }
 
   return (
     <Form className="p-4">
-      <Row form onSubmit={handleSubmit}>
+      <Row>
         <Col md={6}>
           <FormGroup>
             <Label for="consumer_key">Consumer Key</Label>
             <Input
-              type="email"
-              name="email"
+              type="text"
+              name="consumer_key"
               id="consumer_key"
-              readOnly="true"
+              readOnly={progress}
               placeholder="This is auto-generated."
               value={data.key}
               onChange={handleChange}
@@ -42,7 +63,7 @@ const UserForm = () => {
               type="text"
               name="password"
               id="consumer_secret"
-              readOnly="true"
+              readOnly={progress}
               placeholder="This is auto-generated."
               value={data.secret}
               onChange={handleChange}
@@ -50,7 +71,11 @@ const UserForm = () => {
           </FormGroup>
         </Col>
       </Row>
-      <Button block>Generate Credentials</Button>
+      {progress && (
+        <Button type="submit" onClick={handleSubmit} block>
+          Generate Credentials
+        </Button>
+      )}
     </Form>
   )
 }

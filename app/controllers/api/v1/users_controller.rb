@@ -29,6 +29,7 @@ module Api
         # Use callbacks to share common setup or constraints between actions.
         def set_user
           params[:user_id]? @user = User.find(params[:user_id]) : @user = User.find(params[:id])
+          # @user = User.find(session[:id])
         end
     
         def serializer(records, options = {})
