@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  
+  get '/session', to: 'lti#get_session'
 
   namespace :api do
     namespace :v1 do
+      
       get '/users', to: 'users#index'
       get '/users/:user_id', to: 'users#show'
       get '/users/:user_id/videos', to: 'videos#all'

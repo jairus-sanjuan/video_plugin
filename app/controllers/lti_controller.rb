@@ -1,12 +1,6 @@
 class LtiController < ApplicationController
   def launch
     # Check if the key is present or not
-    puts '-----------------------------------------'
-      
-      puts request.request_parameters.inspect
-
-    puts '-----------------------------------------'
-
     require 'oauth/request_proxy/action_controller_request'
     
     @user = User.find_by key: params[:oauth_consumer_key]
@@ -33,6 +27,10 @@ class LtiController < ApplicationController
     session[:user_id] = params.require :user_id
     
     redirect_to '/upload'
+  end
+
+  def get_session
+    render json: {session: session.to_hash }, status:200
   end
 
   def allow_iframe
