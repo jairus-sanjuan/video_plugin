@@ -19,7 +19,6 @@ module Api
     
       def show
          
-
         if @user.videos.exists?(params[:id])
           video = @user.videos.find(params[:id])
           render json: serializer(video)

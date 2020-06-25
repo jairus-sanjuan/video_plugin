@@ -5,7 +5,7 @@ import axios from '../../../../utils/req'
 
 const ActiveItem = ({ match }) => {
   const [video, setVideo] = useState({
-    file: null,
+    file: '',
     title: '',
     description: '',
   })
@@ -18,9 +18,18 @@ const ActiveItem = ({ match }) => {
         }`
       )
       .then((resp) => {
-        console.log('Video Response : ', resp)
+        const data = resp['data']['data']['attributes']
+        const { file, thumbnail, title, description } = data
+
+        setVideo({
+          file,
+          thumbnail,
+          title,
+          description,
+        })
       })
   }, [])
+
   return (
     <div className="row py-4">
       <div className="col-md-10 offset-md-1">
@@ -28,7 +37,7 @@ const ActiveItem = ({ match }) => {
           <div className="card px-5">
             <div className="row">
               <div className="col-md-10 offset-md-1">
-                <Video file={video.file} />
+                <Video file={video.file['url']} />
                 <div className="py-4">
                   <h4>{video.title}</h4>
                   <p>{video.description}</p>
