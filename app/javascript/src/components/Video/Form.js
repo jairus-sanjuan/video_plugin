@@ -108,7 +108,7 @@ const VideoForm = () => {
           </div>
         </div>
 
-        <button className="btn btn-secondary block" onClick={handleUpload}>
+        <button className="btn btn-secondary w-100" onClick={handleUpload}>
           Upload Video
         </button>
       </form>

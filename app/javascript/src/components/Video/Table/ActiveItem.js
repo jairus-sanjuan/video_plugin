@@ -10,6 +10,21 @@ const ActiveItem = ({ match }) => {
     description: '',
   })
 
+  const [options, setOptions] = useState([
+    {
+      id: 1,
+      value: 'Embed in small',
+    },
+    {
+      id: 2,
+      value: 'Embed in medium',
+    },
+    {
+      id: 3,
+      value: 'Embed in large',
+    },
+  ])
+
   useEffect(() => {
     axios
       .get(
@@ -30,6 +45,8 @@ const ActiveItem = ({ match }) => {
       })
   }, [])
 
+  const handleChange = (e) => {}
+
   return (
     <div className="row py-4">
       <div className="col-md-10 offset-md-1">
@@ -43,12 +60,12 @@ const ActiveItem = ({ match }) => {
                   <p>{video.description}</p>
 
                   <div className="cta-wrapper">
-                    <Link
-                      className="btn btn-secondary cta-btn"
-                      to={`/videos/${match.params.id}`}
-                    >
-                      Embed this video
-                    </Link>
+                    <select class="custom-select" onChange={handleChange}>
+                      <option selected>Embed Options</option>
+                      <option value="1">small</option>
+                      <option value="2">medium</option>
+                      <option value="3">large</option>
+                    </select>
                   </div>
                 </div>
               </div>
